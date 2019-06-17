@@ -13,6 +13,6 @@ RUN apt-get install -y --no-install-recommends python3.5 python3.5-dev python3-p
     pip3 install --no-cache-dir --upgrade pip setuptools
 
 # custom pip packages
-RUN pip3 -no-cache-dir install ${PIP_PACKAGES};
+RUN pip3 install ${PIP_PACKAGES};
 
 RUN python3 -m spacy download en
