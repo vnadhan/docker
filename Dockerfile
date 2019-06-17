@@ -1,8 +1,6 @@
 FROM ubuntu:16.04
 MAINTAINER Vishnu <vshgemini@gmail.com>
 
-ENV PIP_PACKAGES="numpy pandas msgpack-python scipy sklearn scikit-image matplotlib torch torchvision spacy allennlp pillow zip"
-
 # Essentials: developer tools, build tools, OpenBLAS
 RUN apt-get update && apt-get install -y --no-install-recommends \
     apt-utils git curl vim unzip openssh-client wget \
@@ -12,7 +10,14 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 RUN apt-get install -y --no-install-recommends python3.5 python3.5-dev python3-pip python3-tk && \
     pip3 install --no-cache-dir --upgrade pip setuptools
 
+# Pillow and it's dependencies
+RUN apt-get install -y --no-install-recommends libjpeg-dev zlib1g-dev && \
+    pip3 --no-cache-dir install Pillow
+
 # custom pip packages
-RUN pip3 install ${PIP_PACKAGES};
+RUN pip3 --no-cache-dir install numpy pandas scipy sklearn scikit-image matplotlib Cython requests msgpack-python
+RUN pip3 install spacy
+RUN pip3 install allennlp
+RUN pip3 install torch torchvision
 
 RUN python3 -m spacy download en
