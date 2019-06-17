@@ -9,7 +9,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential cmake \
     libopenblas-dev
 
-# custom pip packages
-RUN pip -no-cache-dir install ${PIP_PACKAGES};
+RUN apt-get install -y --no-install-recommends python3.5 python3.5-dev python3-pip python3-tk && \
+    pip3 install --no-cache-dir --upgrade pip setuptools
 
-RUN python -m spacy download en
+# custom pip packages
+RUN pip3 -no-cache-dir install ${PIP_PACKAGES};
+
+RUN python3 -m spacy download en
