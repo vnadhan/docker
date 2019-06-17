@@ -7,7 +7,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential cmake \
     libopenblas-dev
 
-RUN apt-get install -y --no-install-recommends python3.5 python3.5-dev python3-pip python3-tk && \
+RUN apt-get install -y --no-install-recommends python3.6 python3.6-dev python3-pip python3-tk && \
     pip3 install --no-cache-dir --upgrade pip setuptools
 
 # Pillow and it's dependencies
