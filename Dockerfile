@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM ubuntu:18.04
 MAINTAINER Vishnu <vshgemini@gmail.com>
 
 # Essentials: developer tools, build tools, OpenBLAS
