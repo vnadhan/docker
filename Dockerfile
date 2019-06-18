@@ -1,6 +1,10 @@
 FROM ubuntu:18.04
 MAINTAINER Vishnu <vshgemini@gmail.com>
 
+# Supress warnings about missing front-end. As recommended at:
+# http://stackoverflow.com/questions/22466255/is-it-possibe-to-answer-dialog-questions-when-installing-under-docker
+ARG DEBIAN_FRONTEND=noninteractive
+
 # Essentials: developer tools, build tools, OpenBLAS
 RUN apt-get update && apt-get install -y --no-install-recommends \
     apt-utils git curl vim unzip openssh-client wget \
