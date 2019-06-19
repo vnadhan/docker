@@ -19,7 +19,7 @@ RUN apt-get install -y --no-install-recommends libjpeg-dev zlib1g-dev && \
     pip3 --no-cache-dir install Pillow
 
 # custom pip packages
-RUN pip3 --no-cache-dir install numpy pandas scipy sklearn scikit-image matplotlib Cython requests msgpack-python zip
+RUN pip3 --no-cache-dir install numpy pandas scipy sklearn scikit-image matplotlib Cython requests msgpack-python
 RUN pip3 install spacy
 RUN pip3 install allennlp
 RUN pip3 install torch torchvision
