@@ -19,9 +19,16 @@ RUN apt-get install -y --no-install-recommends libjpeg-dev zlib1g-dev && \
     pip3 --no-cache-dir install Pillow
 
 # custom pip packages
-RUN pip3 --no-cache-dir install numpy pandas scipy sklearn scikit-image matplotlib Cython requests msgpack-python
+RUN pip3 --no-cache-dir install numpy pandas scipy sklearn scikit-image matplotlib Cython requests msgpack-python zip
 RUN pip3 install spacy
 RUN pip3 install allennlp
 RUN pip3 install torch torchvision
 
 RUN python3 -m spacy download en
+
+RUN mkdir -p QuAC_data
+RUN wget http://s3.amazonaws.com/my89public/quac/train.json -O QuAC_data/train.json
+
+RUN mkdir -p glove
+RUN wget http://nlp.stanford.edu/data/glove.840B.300d.zip -O glove/glove.840B.300d.zip
+RUN unzip glove/glove.840B.300d.zip -d glove
