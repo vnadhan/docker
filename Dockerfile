@@ -1,4 +1,5 @@
-FROM ubuntu:18.04
+#FROM ubuntu:18.04
+FROM nvidia/cuda:8.0-runtime
 MAINTAINER Vishnu <vshgemini@gmail.com>
 
 # Supress warnings about missing front-end. As recommended at:
