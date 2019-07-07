@@ -9,6 +9,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 # Essentials: developer tools, build tools, OpenBLAS
 RUN apt-get update && apt-get install -y --no-install-recommends \
     apt-utils git curl vim unzip openssh-client wget \
+	software-properties-common \
     build-essential cmake \
     libopenblas-dev
 
