@@ -1,5 +1,5 @@
 #FROM ubuntu:18.04
-FROM nvidia/cuda:8.0-runtime
+FROM nvidia/cuda:10.0-cudnn7-devel-ubuntu18.04
 MAINTAINER Vishnu <vshgemini@gmail.com>
 
 # Supress warnings about missing front-end. As recommended at:
@@ -12,7 +12,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential cmake \
     libopenblas-dev
 
-RUN apt-get install -y --no-install-recommends python3.6 python3.6-dev python3-pip python3-tk && \
+RUN add-apt-repository -y ppa:jonathonf/python-3.6 \
+	&& apt-get install -y --no-install-recommends python3.6 python3.6-dev python3-pip python3-tk && \
     pip3 install --no-cache-dir --upgrade pip setuptools
 
 # Pillow and it's dependencies
